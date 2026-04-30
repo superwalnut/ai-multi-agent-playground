@@ -75,3 +75,31 @@ multi_agent/
 ├── main.py              # Entry point
 └── requirements.txt
 
+### How to Run
+
+```
+# 1. Install dependencies
+pip install anthropic python-dotenv
+
+# 2. Set your API key
+export ANTHROPIC_API_KEY=sk-ant-...
+
+# 3. Run
+python main.py
+```
+### What Happens Under the Hood
+
+```
+User task
+   ↓
+Orchestrator (decides plan)
+   ↓
+Tool call → research subagent → result
+   ↓
+Tool call → analyze subagent → result  
+   ↓
+Tool call → write subagent → result
+   ↓
+Orchestrator synthesizes → Final output
+```
+
